@@ -2,8 +2,8 @@
 """This is the state class"""
 from models.base_model import BaseModel, Base
 from models.city import City
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 import models
 from os import environ
 
@@ -31,5 +31,4 @@ class State(BaseModel, Base):
             for city_ins in all_cities.values():
                 if city_ins.state_id == self.id:
                     state_cities.append(city_ins)
-
             return state_cities
